@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mariano Teruel">
+    <meta name="description" content="Vortelix">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Vortelix</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    
+    
+   
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light ">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+          </button>
+          <a class="navbar-logo d-lg-none d-md-none d-md-flex " href="index.html">
+            <img src="img/logo-1.png" alt="" class="icono-navbar" id="#logo">
+          </a>
+            <div class="collapse navbar-collapse" id="navbar-toggler">
+                <a class="navbar-logo d-none d-md-flex " href="./index.html">
+                    <img src="img/logo-1.png" alt="" class="icono-navbar">
+                    
+                </a>
+                <ul class="navbar-nav d-flex justify-content-center align-items-center gap-3">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="./index.html">Servicios</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#exp">Accesorios</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="./locales.html">Locales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./blog.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- calculadora -->
+    <section class="fondo">
+    <div class="max-w-4xl mx-auto bg-rgba(51, 51, 51, 0.21) p-6 rounded-xl shadow-xl  accesorios" >
+        <h1 class="text-2xl font-bold text-center mb-4" >Calculadora de Planes de Internet</h1>
+    <form  class="formcal ">
+        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="font-bold">Dispositivos:</label>
+          <input type="number" id="dispositivos" class="w-full p-2 border rounded custom-inputcal" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label>Uso principal:
+                <select id="uso" class="w-full p-2 border rounded custom-inputcal text-black ">
+                    <option value="streaming">Streaming</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="teletrabajo">Teletrabajo</option>
+                    <option value="navegacion">Navegación básica</option>
+                </select>
+            </label>
+        </div>
+        <div style="padding-left: 30%;">
+        <button type="submit" class="btn custom-button ">Calcular Plan</button>
+    </div>
+      </form>
+      <p class="resul" id="resultado" class="mt-4 text-center font-semibold"></p>
+    </div>
+    </section>
+    <script>
+        document.getElementById("calculadora").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const dispositivos = document.getElementById("dispositivos").value;
+            const uso = document.getElementById("uso").value;
+            let plan = "";
+
+            if (dispositivos <= 3 && uso === "navegacion") {
+                plan = "¡Te recomendamos Plan Básico (50 Mbps) es perfecto para ti! Ideal para navegar sin preocupaciones.";
+            } else if (dispositivos <= 4 || uso === "streaming") {
+                plan = "📺 ¡Te recomendamos Plan Estándar (100 Mbps)! Disfruta tus series y películas sin interrupciones.";
+            } else if (dispositivos <= 6 || uso === "gaming" || uso === "teletrabajo") {
+                plan = "Te recomendamos ⚡ Plan Ultra (300 Mbps): máxima velocidad para jugar, trabajar y más. ¡Velocidad sin límites!";
+            } else if (dispositivos > 6 || uso === "gaming" || uso === "teletrabajo") {
+                plan = "Plan Premium (600 Mbps): Potencia extrema para gaming, streaming en 4K y teletrabajo sin interrupciones. ¡Velocidad sin límites! 🚀";
+            } else {
+                plan = "🤔 Parece que necesitas un plan personalizado. ¡Contáctanos y te ayudamos a elegir el mejor!";
+            }
+            document.getElementById("resultado").textContent = plan;
+        });
+    </script>
+    <section class="experiencia seccion-oscura">
+        <div class="container custom-section mt-5">
+            <div class="row">
+                <h2 class="titulo-amarillo">¿Por qué elegir Vortelix?</h2>
+                <div class="col-12 col-md-5 mb-3 mb-md-0">
+                    
+                    <p>
+                        <strong>Velocidades Ultra Rápidas:</strong> Ofrecemos conexiones de alta velocidad que superan las capacidades de las conexiones tradicionales, gracias a nuestra tecnología de fibra óptica y satelital.
+                    </p>
+                </div>
+                <div class="col-12 col-md-1 d-flex justify-content-center align-items-center mb-3 mb-md-0">
+                    <div class="divider d-none d-md-block"></div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        <strong>Confiabilidad y Estabilidad:</strong> Nuestra infraestructura está diseñada para ofrecer un servicio constante y confiable, reduciendo al mínimo las interrupciones y asegurando que siempre estés conectado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contacto -->
+    <section class="contacto seccion-roja" id="contacto">
+        <div class="container">
+            <div class="container text-center rectangulo d-flex justify-content-evenly">
+                <div class="row">
+                    <div class="col-12 col-md-4 seccion-titulo">
+                        <h1>¡Hablemos!</h1>
+                    </div>
+                    <div class="col-12  col-md-4 descripcion">
+                        <p>Contáctame para ser parte de lo mejor en conexion.</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <button type="button" class="btn btn-danger" onclick="window.location.href='contacto.html'">Contactame!  <img src="img/icono-cont.png" class="icono-cont" alt=""> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    
+      <!-- Footer -->
+        <footer class="seccion-roja d-flex flex-column align-items-center justify-content-center">
+            <img src="img/logo-1.png" alt="">
+            <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+                <a href="https://x.com" target="_blank">
+                    <img src="img/whatsapp.png" alt="icono whatsapp">
+                </a>
+                <a href="https://www.instagram.com/">
+                    <img src="img/instagram.png" alt=" icono instagram">
+                </a>
+                <a href="https://www.linkedin.com/">
+                    <img src="img/facebook.png" alt="icono facebook">
+                </a>
+            </div>
+            <div class="derechos-autor">
+                Todos los derechos reservados (2024) &#169;
+            </div>
+        </footer>
+   
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>   
+</body>
+</html>
